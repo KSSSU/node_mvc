@@ -14,7 +14,7 @@ function assets_handler(uri,dir) {
         let req_path = ctx.request.path;
         if (req_path.startsWith(uri)) {
             let whole_path = path.join(dir,req_path);
-            if (fs.exists(whole_path)) {
+            if (await fs.exists(whole_path)) {
                 ctx.response.body = fs.readFileSync(whole_path);
                 ctx.response.type = mime.getType(req_path);
             } else {
