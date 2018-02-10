@@ -1,9 +1,15 @@
-//静态资源处理模块
+/*
+ * @Author: xmgtony 
+ * @Date: 2018-02-10 18:56:27 
+ * @Description: 静态资源处理器模块
+ * @Last Modified by:    
+ * @Last Modified time: 
+*/
 const path = require("path");
 const mime = require("mime");
 const fs = require("mz/fs");
 
-function handleStatics(uri,dir) {
+function assets_handler(uri,dir) {
     return async (ctx,next) => {
         let req_path = ctx.request.path;
         if (req_path.startsWith(uri)) {
@@ -20,4 +26,4 @@ function handleStatics(uri,dir) {
     }
 }
 
-module.exports = handleStatics;
+module.exports = assets_handler;
