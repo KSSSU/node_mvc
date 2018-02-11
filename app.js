@@ -11,6 +11,7 @@ var body_parser = require("koa-bodyparser");
 var assets_handler = require("./assets-handler");
 var template_loader = require("./template-loader");
 var logger_info = require("./logger-info");
+var controllers_loader = require("./controller-loader");
 
 const env_mode = process.env.NODE_ENV === "production";
 const port = 3000;

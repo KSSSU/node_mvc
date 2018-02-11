@@ -20,12 +20,12 @@ function controller_loader(path) {
         console.log("the controller path is not exists!");
         return;
     }
-    let files = fs.readDirSync(dir);
-    let files = files.filter(file => {
-        file.endsWith(".js");
+    let files = fs.readdirSync(dir);
+    let js_files = files.filter(file => {
+        return file.endsWith(".js");
     });
-    for (const file_name of files) {
-        let url_mapping = require(dir + file_name);
+    for (const file_name of js_files) {
+        let url_mapping = require(dir.endsWith("/")?dir + file_name:dir + "/" +file_name);
         for (const url in url_mapping) {
             if (url.startsWith("GET ")) {
                 let url_path = url.substring(4);
@@ -43,7 +43,7 @@ function controller_loader(path) {
 }
 
 module.exports = function(path) {
-    let path = path || "/controllers";
-    controller_loader(path);
+    let scan_path = path || "/controllers";
+    controller_loader(scan_path);
     return router.routes();
 }
