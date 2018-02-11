@@ -2,6 +2,7 @@
     "name": "node_mvc",
     "description": "node mvc",
     "version": "1.0.0",
+    "license": "MIT",
     "keywords": [
         "koa",
         "nunjucks"
