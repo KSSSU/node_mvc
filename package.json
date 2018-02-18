@@ -21,6 +21,8 @@
         "mime": "2.0.3",
         "koa-router": "7.4.0",
         "koa-bodyparser": "4.2.0",
-        "chokidar": "~2.0.1"
+        "chokidar": "~2.0.1",
+        "mysql": "^2.14.0",
+        "sequelize": "~4.33.3"
     }
 }

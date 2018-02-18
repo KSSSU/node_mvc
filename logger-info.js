@@ -12,6 +12,7 @@ var logger = function () {
         await next();
         let time = new Date().getTime() -  start_time;
         console.log(`The time for processing consumption is: ${time}ms`);
+        ctx.response.set('X-Response-Time', `${time}ms`);
     }
 }
 

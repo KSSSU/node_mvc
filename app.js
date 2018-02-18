@@ -15,7 +15,7 @@ var controllers_loader = require("./controller-loader");
 
 const env_mode = process.env.NODE_ENV === "production";
 const port = 3000;
-const app = new Koa();
+const app = new Koa()
 const router = new Router();
 const nunjucks_template_loader = template_loader.nunjucks_template_loader;
 //打印请求方法和处理请求时间
