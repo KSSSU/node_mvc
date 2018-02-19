@@ -41,22 +41,25 @@ var defineModel = (name,attributes) => {
             }
         }
     }
-
-    attrs.id = {
-        type: ID_TYPE,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
+    if (!attributes.id) {
+        attrs.id = {
+            type: ID_TYPE,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        }
     }
-
-    attrs.created = {
-        type: Sequelize.BIGINT,
-        allowNull: false
+    if(!attributes.created) {
+        attrs.created = {
+            type: Sequelize.BIGINT,
+            allowNull: false
+        }
     }
-
-    attrs.modified = {
-        type: Sequelize.BIGINT,
-        allowNull: false
+    if(!attributes.modified) {
+        attrs.modified = {
+            type: Sequelize.BIGINT,
+            allowNull: false
+        }
     }
 
     return sequelize.define(name,attrs,{
@@ -79,4 +82,14 @@ var defineModel = (name,attributes) => {
         }
     });
 }
-module.exports = defineModel;
+
+const db = {
+    defineModel: defineModel,
+    sequelize: sequelize
+}
+//绑定sequelize的类型到db上
+const dataTypes = Sequelize.DataTypes;
+for (const dataType in dataTypes) {
+  db[dataType] = dataTypes[dataType];
+}
+module.exports = db;

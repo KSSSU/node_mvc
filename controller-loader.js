@@ -43,7 +43,7 @@ function controller_loader(path) {
 }
 
 module.exports = function(path) {
-    let scan_path = path || "/controllers";
+    let scan_path = path || "/controller";
     controller_loader(scan_path);
     return router.routes();
 }

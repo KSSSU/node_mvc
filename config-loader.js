@@ -26,7 +26,7 @@ try{
         config = require(configJs);
     }
 }catch(err){
-    console.log(`cannot load database config: ${config}`);
+    console.log(`Cannot load database config: ${config}`);
 }
 
 module.exports = config;
