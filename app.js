@@ -18,6 +18,7 @@ const port = 3000;
 const app = new Koa()
 const router = new Router();
 const nunjucks_template_loader = template_loader.nunjucks_template_loader;
+
 //打印请求方法和处理请求时间
 app.use(logger_info());
 //处理静态资源
@@ -30,5 +31,5 @@ app.use(nunjucks_template_loader("views",{noCache:!env_mode,watch:!env_mode}));
 app.use(controllers_loader());
 //监听端口
 app.listen(port);
-console.log(`server is running in port ${port}`);
+console.log(`server is running in port ${port},^_^`);
 
