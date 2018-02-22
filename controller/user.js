@@ -6,7 +6,7 @@
  * @Last Modified time: 
 */
 
-const userService = require("../service/user-service");
+const userService = require("../service/user");
 
 /**
  * 用户登录
