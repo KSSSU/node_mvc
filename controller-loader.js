@@ -6,7 +6,7 @@
  * @Last Modified by:    
  * @Last Modified time: 
 */
-
+const debug = require("debug")("application:controller");
 const fs = require("mz/fs");
 const Router = require("koa-router");
 const router = new Router();
@@ -17,7 +17,7 @@ const router = new Router();
 function controller_loader(path) {
     let dir = path.startsWith("/") ? __dirname + path : __dirname + "/" + path;
     if (!fs.exists(dir)) {
-        console.log("the controller path is not exists!");
+        debug("the controller path is not exists!");
         return;
     }
     let files = fs.readdirSync(dir);
@@ -30,13 +30,13 @@ function controller_loader(path) {
             if (url.startsWith("GET ")) {
                 let url_path = url.substring(4);
                 router.get(url_path,url_mapping[url]);
-                console.log(`Register url mapping of GET method : ${url_path}`);
+                debug(`Register url mapping of GET method : ${url_path}`);
             } else if (url.startsWith("POST ")) {
                 let url_path = url.substring(5);
                 router.post(url_path,url_mapping[url]);
-                console.log(`Register url mapping of POST method : ${url_path}`);
+                debug(`Register url mapping of POST method : ${url_path}`);
             } else {
-                console.log("can not mapping! unsupport request method!");
+                debug("can not mapping! unsupport request method!");
             }
         }
     }

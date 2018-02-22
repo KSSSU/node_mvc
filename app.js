@@ -12,8 +12,11 @@ var assets_handler = require("./assets-handler");
 var template_loader = require("./template-loader");
 var logger_info = require("./logger-info");
 var controllers_loader = require("./controller-loader");
+const debug = require("debug")("application:main");
 
 const env_mode = process.env.NODE_ENV === "production";
+debug(`NODE_ENV: ${process.env.NODE_ENV}`);
+
 const port = 3000;
 const app = new Koa()
 const router = new Router();

@@ -5,7 +5,7 @@
  * @Last Modified by:    
  * @Last Modified time: 
 */
-
+// const Op = require("sequelize").Op;
 const DbConfig = {
     database: "test",
     username: "root",
@@ -14,11 +14,20 @@ const DbConfig = {
     port: 3306,
     dialect: "mysql",
     //连接池的配置
-    poolConfig: {
-        max: 10,
-        min: 0,
-        idle: 3000
-    }
+    // poolConfig: {
+    //     max: 10,
+    //     min: 0,
+    //     idle: 3000
+    // },
+    // operatorsAliases: {
+    //     $and: Op.and,
+    //     $or: Op.or,
+    //     $eq: Op.eq,
+    //     $gt: Op.gt,
+    //     $lt: Op.lt,
+    //     $lte: Op.lte,
+    //     $like: Op.like
+    // }
 }
 
 module.exports = DbConfig;

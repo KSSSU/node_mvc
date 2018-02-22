@@ -5,7 +5,8 @@
  * @Last Modified by:    
  * @Last Modified time: 
 */
-const User = require("../models/user");
+const Models = require("../model-loader");
+let User = Models.user;
 /**
  * 根据用户名查询用户信息
  * @param {string} username 
@@ -13,7 +14,7 @@ const User = require("../models/user");
 var find_user_by_name = async (username) => {
     return await User.findOne({
         where: {
-            username: username
+            username: {$eq: username}
         }
     })
 }

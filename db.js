@@ -21,7 +21,8 @@ var sequelize = new Sequelize(
             max: dbConfig.max || 10,
             min: dbConfig.min || 0,
             idle: dbConfig.idle || 3000
-        }
+        },
+        operatorsAliases: dbConfig.operatorsAliases || false
 });
 //定义model的通用字段，规范制表规范，也就是这几个字段是每个表必须有的
 //三个通用字段分别是：id，主键，自增；created，创建时间，时间戳；modified，修改时间，时间戳
@@ -85,7 +86,7 @@ var defineModel = (name,attributes) => {
 
 const db = {
     defineModel: defineModel,
-    sequelize: sequelize
+    sequelize: sequelize,
 }
 //绑定sequelize的类型到db上
 const dataTypes = Sequelize.DataTypes;

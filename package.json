@@ -14,7 +14,8 @@
         "email": "xmgtony@gmail.com"
     },
     "scripts": {
-        "start": "node app.js"
+        "dev": "DEBUG=application:* NODE_ENV=development node app.js",
+        "start": "NODE_ENV=production node app.js"
     },
     "dependencies": {
         "koa": "2.4.1",
