@@ -40,7 +40,7 @@
   * @param {string} view_path 
   * @param {object} options 
   */
- function nunjucks_template_loader(view_path,options) {
+ function nunjucksTemplateLoader(view_path,options) {
     let env = nunjucksEnvInitial(view_path,options);
     return async (ctx,next) => {
         ctx.render = function(view,model) {
@@ -51,9 +51,18 @@
     }
  }
 
- //导出
+ /**
+  * 获取模板中间件
+  * @param {string} type 
+  */
+ function getTemplate(type) {
+    if(undefined == type || "nunjucks" == type.toLowerCase) {
+        return nunjucksTemplateLoader;
+    }
+ }
+
  module.exports = {
-     nunjucks_template_loader: nunjucks_template_loader,
+     getTemplate: getTemplate,
  };
 
 
