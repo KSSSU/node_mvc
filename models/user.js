@@ -5,7 +5,7 @@
  * @Last Modified by:    
  * @Last Modified time: 
 */
-const db = require("../db");
+const db = require("../lib/db");
 
 module.exports = db.defineModel("user",{
     username: db.STRING(16),

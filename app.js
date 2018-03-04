@@ -8,10 +8,10 @@
 var Koa = require("koa");
 var Router = require("koa-router");
 var body_parser = require("koa-bodyparser");
-var assets_handler = require("./assets-handler");
-var template_loader = require("./template-loader");
-var logger_info = require("./logger-info");
-var controllers_loader = require("./controller-loader");
+var assets_handler = require("./lib/assets-handler");
+var template_loader = require("./lib/template-loader");
+var logger_info = require("./lib/logger-info");
+var controllers_loader = require("./lib/controller-loader");
 const debug = require("debug")("application:main");
 
 const env_mode = process.env.NODE_ENV === "production";

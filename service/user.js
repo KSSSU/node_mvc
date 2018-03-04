@@ -5,7 +5,7 @@
  * @Last Modified by:    
  * @Last Modified time: 
 */
-const Models = require("../model-loader");
+const Models = require("../lib/model-loader");
 let User = Models.user;
 /**
  * 根据用户名查询用户信息

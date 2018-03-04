@@ -15,7 +15,8 @@
     },
     "scripts": {
         "dev": "DEBUG=application:* NODE_ENV=development node app.js",
-        "start": "NODE_ENV=production node app.js"
+        "start": "NODE_ENV=production node app.js",
+        "test": "mocha"
     },
     "dependencies": {
         "koa": "2.4.1",
@@ -29,6 +30,10 @@
         "log4js": "^2.5.3",
         "mysql2": "~1.5.2",
         "sequelize": "~4.33.4"
+    },
+    "devDependencies": {
+        "mocha": "5.0.1",
+        "supertest": "3.0.0"
     },
     "engines": {
         "node": ">=7.9"
