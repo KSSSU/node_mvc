@@ -12,11 +12,29 @@ const userService = require("../service/user");
  * 用户登录
  * @param {object} ctx 
  */
-var user_login = async (ctx) => {
-    let user = await userService.find_user_by_name(ctx.query.username);
-    console.log(JSON.stringify(user));
+var userLogin = async (ctx) => {
+    let username = ctx.request.body.username;
+    let password = ctx.request.body.password;
+    let user = await userService.getUserInfoByName(username);
+    if(user && user.password === password.trim()) {
+        ctx.redirect("/user/login_ok");
+    } else {
+        ctx.redirect("/user/login_err");
+    }
 } 
 
+var loginOk = async (ctx) => {
+    ctx.render("login_ok.html",{});
+}
+
+var loginErr = async (ctx) => {
+    ctx.render("login_err.html",{
+        message: "用户名或者密码不正确"
+    })
+}
+
 module.exports = {
-    "GET /user/login": user_login
+    "POST /user/login": userLogin,
+    "GET /user/login_ok": loginOk,
+    "GET /user/login_err": loginErr
 }
