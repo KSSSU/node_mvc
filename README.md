@@ -2,8 +2,14 @@
 
 一个简单的mvc框架，使用koa2，nunjucks，sequelize等构建，并添加日志组件log4js和测试框架mocha。
 
+支持自定义模板引擎（需要自己实现自己模板加载器）
+支持restful 风格api（案例后面以微信小程序补充）
+
+并没有使用pm2去管理项目进程，因为整合目标仅用于学习参考，如果有用于生产环境的需求，欢迎issue，后期补充。
+
 ## 环境要求
 Redis必须，mysql非必须，但是已经集成了sequelize，可以参考注释掉的示例使用。
+node版本 > 8
 
 ## 如何使用
 - clone 项目
@@ -13,6 +19,8 @@ npm install
 - 配置redis，在config/redis目录下，启动redis
 - 测试环境运行项目
 npm run dev
+
+![启动界面](https://maxiaofeng-blog.oss-cn-hangzhou.aliyuncs.com/markdown/WX20180324-201926%402x.png)
 - 访问本机地址：http://127.0.0.1:3000
 - 输入账户密码登录 test01 123456
 
@@ -31,3 +39,4 @@ npm run dev
 因为本框架是自己学习过程中搭建，没有刻意考虑安全问题，框架层面nunjuck默认开启了转义，可以避免xss攻击，建议sequelize使用参数绑定的方式生成sql，可以避免sql注入攻击（参考squelize文档）。对于csrf攻击，后期会加入配置开启，并定义中间件处理。
 ## 声明
 该整合框架仅用于学习和测试，如用于生产环境，请自行评估安全性,影响性。本框架在整合过程中，参考了廖雪峰老师的博客，并根据自己生产环境中使用其他语言框架的经验做了一定调整。
+本案例是在mac上编写，未在windows上做过充分测试，不保证windows系统的可用性。
