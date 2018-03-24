@@ -35,8 +35,8 @@
  }
 
  let users = [
-     new User("xiaoming", 18, "2001-01-02", "123456"),
-     new User("xiaohua", 17, "2002-10-02", "123456")
+     new User("test01", 18, "2001-01-02", "123456"),
+     new User("test02", 17, "2002-10-02", "123456")
  ];
 
  function getUserInfoByName(name) {
