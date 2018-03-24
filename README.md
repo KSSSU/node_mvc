@@ -15,10 +15,14 @@ node版本 > 8
 - clone 项目
 git clone 项目地址
 - 安装所需依赖（推荐使用cnpm）
+```
 npm install
+```
 - 配置redis，在config/redis目录下，启动redis
 - 测试环境运行项目
+```
 npm run dev
+```
 
 ![启动界面](https://maxiaofeng-blog.oss-cn-hangzhou.aliyuncs.com/markdown/WX20180324-201926%402x.png)
 - 访问本机地址：http://127.0.0.1:3000
@@ -32,7 +36,11 @@ npm run dev
 - 模板引擎默认使用的是nunjucks，你可以修改template-loader.js（我称它为模板加载器）来加载你喜欢用的模板引擎。
 
 ## 如何测试
-- 测试脚本默认都放在项目的test文件夹下，编写好脚本之后直接执行 npm test 
+测试脚本默认都放在项目的test文件夹下，编写好脚本之后直接执行
+```
+npm test 
+```
+
 测试框架使用mocha，使用方式参考mocha官方文档。
 实际开发中业务较为复杂，一般使用测试框架，并不能满足业务需求，测试框架只能测试简单的工具类，期望的响应状态和类型。对于动态数据，比如较为复杂的sql中的数据每次取值可能都不同，测试覆盖不到业务层面。有更好的测试方式，欢迎提供！
 
