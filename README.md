@@ -1,6 +1,6 @@
 # node mvc 框架
 
-一个简单的mvc框架，使用koa2,nunjucks,sequelize等构建，并添加日志组件log4js和测试框架mocha。
+一个简单的mvc框架，使用koa2,nunjucks,sequelize等构建，并添加日志组件log4js和测试框架mocha。
 
 支持自定义模板引擎（需要自己实现自己模板加载器）
 支持restful 风格api（案例后面以微信小程序补充）
@@ -30,10 +30,10 @@ npm run dev
 - 输入账户密码登录 test01 123456
 
 ## 如何配置
-所有的配置文件在config目录下，都分为dev配置和prod配置，根据开发环境的不同，加载不同的配置文件。
+所有的配置文件在config目录下，都分为dev配置和prod配置，根据开发环境的不同，加载不同的配置文件。
 
 ## 如何自定义
-- 静态资源是放在assets目录下的，是由assets-handler, 我称作静态资源处理器加载的，生产环境建议使用nginx处理静态资源，以获得高效的性能。
+- 静态资源是放在assets目录下的，是由assets-handler,我称作静态资源处理器加载的，生产环境建议使用nginx处理静态资源，以获得高效的性能。
 - 模板引擎默认使用的是nunjucks，你可以修改template-loader.js（我称它为模板加载器）来加载你喜欢用的模板引擎。
 
 ## 如何测试
