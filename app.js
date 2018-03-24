@@ -13,8 +13,8 @@ var template_loader = require("./lib/template-loader");
 var logger_info = require("./lib/logger-info");
 var controllers_loader = require("./lib/controller-loader");
 const debug = require("debug")("application:main");
+const env_mode = require("./utils/check-env");
 
-const env_mode = process.env.NODE_ENV === "production";
 debug(`NODE_ENV: ${process.env.NODE_ENV}`);
 
 const port = 3000;
