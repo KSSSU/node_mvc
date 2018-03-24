@@ -12,6 +12,7 @@ var assets_handler = require("./lib/assets-handler");
 var template_loader = require("./lib/template-loader");
 var logger_info = require("./lib/logger-info");
 var controllers_loader = require("./lib/controller-loader");
+var session = require("./lib/session");
 const debug = require("debug")("application:main");
 const env_mode = require("./utils/check-env");
 
@@ -26,6 +27,8 @@ const template = template_loader.getTemplate();
 app.use(logger_info());
 //处理静态资源
 app.use(assets_handler("/assets/",__dirname));
+//session
+app.use(session());
 //解析post请求
 app.use(body_parser());
 //注入模板加载器

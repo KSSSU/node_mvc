@@ -17,6 +17,7 @@ var userLogin = async (ctx) => {
     let password = ctx.request.body.password;
     let user = await userService.getUserInfoByName(username);
     if(user && user.password === password.trim()) {
+        ctx.session.user = user;
         ctx.redirect("/user/login_ok");
     } else {
         ctx.redirect("/user/login_err");
@@ -24,7 +25,13 @@ var userLogin = async (ctx) => {
 } 
 
 var loginOk = async (ctx) => {
-    ctx.render("login_ok.html",{});
+    let user = ctx.session.user;
+    //检查用户是否登录，没有登录就跳转到首页
+    if(!user) {
+        ctx.redirect("/");
+        return;
+    }
+    ctx.render("login_ok.html",{user:user});
 }
 
 var loginErr = async (ctx) => {
@@ -33,8 +40,15 @@ var loginErr = async (ctx) => {
     })
 }
 
+var logout = async (ctx) => {
+    //销毁session,跳转到首页
+    ctx.session = null;
+    ctx.redirect("/");
+}
+
 module.exports = {
     "POST /user/login": userLogin,
     "GET /user/login_ok": loginOk,
-    "GET /user/login_err": loginErr
+    "GET /user/login_err": loginErr,
+    "GET /user/logout": logout
 }
